@@ -32,15 +32,11 @@ let APPROXIMATE_COST
 
 test.before.cb(t => {
   resetBegin('before')
-  // also use setTimeout to calculate time
-  setTimeout(() => {
-    const cost = heavy()
-    setTimeout(() => {
-      APPROXIMATE_COST = cost
-      log('APPROXIMATE_COST: %s', APPROXIMATE_COST)
-      t.end()
-    })
-  }, 0)
+
+  const cost = heavy()
+  APPROXIMATE_COST = cost
+  log('APPROXIMATE_COST: %s', APPROXIMATE_COST)
+  t.end()
 })
 
 test.serial('typeof', t => {
