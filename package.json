@@ -1,7 +1,7 @@
 {
-  "name": "browser-event-loop-lag",
+  "name": "cross-event-loop-lag",
   "version": "1.0.0",
-  "description": "Measures event loop log on browsers.",
+  "description": "Measures event loop log on browsers or nodejs.",
   "module": "index.js",
   "main": "event-loop-lag.js",
   "scripts": {
@@ -18,13 +18,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/kaelzhang/browser-event-loop-lag.git"
+    "url": "git://github.com/kaelzhang/cross-event-loop-lag.git"
   },
   "keywords": [
-    "browser-event-loop-lag",
+    "cross-event-loop-lag",
     "event-loop",
+    "event-loop-delay",
+    "event-loop-lag",
     "lag",
-    "browser"
+    "browser",
+    "delay",
+    "sampler"
   ],
   "engines": {
     "node": ">= 6"
@@ -37,7 +41,7 @@
   "author": "kaelzhang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kaelzhang/browser-event-loop-lag/issues"
+    "url": "https://github.com/kaelzhang/cross-event-loop-lag/issues"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
