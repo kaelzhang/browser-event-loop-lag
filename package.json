@@ -28,7 +28,8 @@
     "lag",
     "browser",
     "delay",
-    "sampler"
+    "sampler",
+    "es6"
   ],
   "engines": {
     "node": ">= 6"

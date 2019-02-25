@@ -15,7 +15,9 @@
 
 # cross-event-loop-lag
 
-Measures event loop lag on browsers or node. Just a fork of [event-loop-lag](https://github.com/pebble/event-loop-lag) but works on both nodejs environment and browsers.
+Measures event loop lag on browsers or node.
+
+Just a fork of [event-loop-lag](https://github.com/pebble/event-loop-lag) but works on both nodejs environment and browsers.
 
 ## Install
 
