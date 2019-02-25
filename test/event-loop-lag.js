@@ -1,6 +1,6 @@
 import test from 'ava'
 import {debuglog} from 'util'
-import {factory} from '../event-loop-lag.js'
+import {factory} from '../index'
 
 const log = debuglog('event-loop-lag')
 
