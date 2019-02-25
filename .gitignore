@@ -1,5 +1,5 @@
 # babel dist
-/lib
+/event-loop-lag.js
 
 # Numerous always-ignore extensions
 *.bak

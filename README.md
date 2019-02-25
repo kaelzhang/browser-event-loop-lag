@@ -15,7 +15,7 @@
 
 # browser-event-loop-lag
 
-<!-- description -->
+Measures event loop lag on browsers. Just a fork of [event-loop-lag](https://github.com/pebble/event-loop-lag) but works on browsers.
 
 ## Install
 
@@ -26,7 +26,29 @@ $ npm i browser-event-loop-lag
 ## Usage
 
 ```js
-import browser_event_loop_lag from 'browser-event-loop-lag'
+import {factory} from 'browser-event-loop-lag'
+
+const interval = 50
+const lag = factory(interval)
+
+someHeavyMethod()
+lag()  // 500, get the lag measurement
+```
+
+## factory(interval: number)
+
+- **interval** `number` The number of milliseconds representing how often to refresh the event loop lag measurement.
+
+Creates a function `lag` which can be invoked to return the latest lag measurement in ms. Besides, we can use `lag.destroy()` to stop the measuring and destroy the timer inside.
+
+After `lag.destroy()`ed, `lag()` will always return `0`
+
+```js
+// Destroy the timer and stop measuring
+lag.destroy()
+
+lag() // 0
+lag() // 0
 ```
 
 ## License

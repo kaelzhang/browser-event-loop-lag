@@ -1,29 +1,38 @@
 {
   "name": "browser-event-loop-lag",
   "version": "1.0.0",
-  "description": "browser-event-loop-lag",
-  "main": "src/index.js",
+  "description": "Measures event loop log on browsers.",
+  "module": "index.js",
+  "main": "event-loop-lag.js",
   "scripts": {
-    "test": "nyc ava --timeout=10s",
-    "test-no-report": "NODE_DEBUG=browser-event-loop-lag nyc ava --timeout=10s --verbose",
+    "test": "NODE_DEBUG=event-loop-lag nyc ava --timeout=20s --verbose",
+    "build": "babel -o event-loop-lag.js index.js",
+    "test-no-report": "npm run build && NODE_DEBUG=event-loop-lag nyc ava --timeout=20s --verbose",
     "lint": "eslint .",
+    "prepublish": "npm run build",
     "posttest": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "files": [
-    "src/"
+    "index.js",
+    "event-loop-lag.js"
   ],
   "repository": {
     "type": "git",
     "url": "git://github.com/kaelzhang/browser-event-loop-lag.git"
   },
   "keywords": [
-    "browser-event-loop-lag"
+    "browser-event-loop-lag",
+    "event-loop",
+    "lag",
+    "browser"
   ],
   "engines": {
     "node": ">= 6"
   },
   "ava": {
-    "babel": false
+    "require": [
+      "@babel/register"
+    ]
   },
   "author": "kaelzhang",
   "license": "MIT",
@@ -31,11 +40,14 @@
     "url": "https://github.com/kaelzhang/browser-event-loop-lag/issues"
   },
   "devDependencies": {
-    "ava": "^1.2.1",
-    "codecov": "^3.2.0",
-    "nyc": "^13.3.0",
-    "eslint-config-ostai": "^1.1.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint": "^5.14.0"
+    "@babel/cli": "^7.2.3",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "ava": "^1.2.0",
+    "codecov": "^3.1.0",
+    "eslint": "^5.12.1",
+    "eslint-config-ostai": "^1.4.0",
+    "eslint-plugin-import": "^2.16.0",
+    "nyc": "^13.1.0"
   }
 }
