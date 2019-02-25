@@ -35,9 +35,11 @@ test.before.cb(t => {
   // also use setTimeout to calculate time
   setTimeout(() => {
     const cost = heavy()
-    APPROXIMATE_COST = cost
-    log('APPROXIMATE_COST: %s', APPROXIMATE_COST)
-    t.end()
+    setTimeout(() => {
+      APPROXIMATE_COST = cost
+      log('APPROXIMATE_COST: %s', APPROXIMATE_COST)
+      t.end()
+    })
   }, 0)
 })
 
